@@ -16,7 +16,7 @@ const Contact = () => {
   const handleSend = async() => {
     try {
       setLoading(true);
-      await axios.post("http://localhost:8000/api/v1/mail",{
+      await axios.post("https://portfolio-kappa-lovat-61.vercel.app/api/v1/mail",{
         "email": "test@gmail.com",
         name,
         msg: message
