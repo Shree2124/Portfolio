@@ -17,7 +17,7 @@ const Contact = () => {
     try {
       setLoading(true);
       await axios.post("https://portfolio-kappa-lovat-61.vercel.app/api/v1/mail",{
-        "email": "test@gmail.com",
+        "email": "majorprojecttesting97@gmail.com",
         name,
         msg: message
       }).then((res)=>{
