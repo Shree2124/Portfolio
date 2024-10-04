@@ -29,6 +29,10 @@ app.use(
     })
 );
 
+app.get("/",(req,res)=>{
+    res.send("hii")
+})
+
 import routes from "./routes/email.routes.js"
 
 app.use("/api/v1", routes)
