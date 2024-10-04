@@ -3,10 +3,11 @@ import { Box, Typography, Grid } from "@mui/material";
 import { motion } from "framer-motion";
 
 const skillsData = {
-  tools: ["Git", "Docker", "Webpack", "VS Code"],
-  languages: ["JavaScript", "Python", "TypeScript", "HTML", "CSS"],
-  frameworks: ["React", "Next.js", "Express", "Node.js"],
+  tools: ["Git", "Postman", "VS Code"],
+  languages: ["JavaScript", "Python", "HTML", "CSS"],
+  frameworks: ["React", "Express", "Node.js"],
   libraries: ["Redux", "MUI", "Framer Motion", "Tailwind CSS"],
+  database: ["Mongodb", "SQL"]
 };
 
 const fadeInUp = {
@@ -156,6 +157,38 @@ const MySkills = () => {
                   }}
                 >
                   {library}
+                </motion.div>
+              ))}
+            </Box>
+          </motion.div>
+        </Grid>
+
+        <Grid item xs={12} md={3}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInUp}
+            viewport={{ once: true }}
+          >
+            <Typography variant="h5" sx={{ mb: 2, color: "#00FFFF" }}>
+              Databases
+            </Typography>
+            <Box>
+              {skillsData.database.map((db, index) => (
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  key={index}
+                  style={{
+                    backgroundColor: "#1A1A2E",
+                    margin: "0.5rem 0",
+                    padding: "1rem",
+                    borderRadius: "8px",
+                    cursor: "pointer",
+                    color: "#FFF",
+                    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.4)",
+                  }}
+                >
+                  {db}
                 </motion.div>
               ))}
             </Box>
