@@ -1,0 +1,36 @@
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv"
+
+const asyncHandler = (requestHandler) => {
+    return (req, res, next) => {
+        Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err));
+    };
+};
+export { asyncHandler };
+
+
+const app = express();
+
+app.use(
+    cors({
+        // origin: ["https://shree-portfolio-xi.vercel.app"],
+        origin: ["*"],
+        methods: ["POST", "GET", "PUT", "DELETE", "PATCH"],
+        preflightContinue: false,
+        credentials: true
+    })
+);
+
+
+app.use(
+    express.json({
+        limit: "16kb",
+    })
+);
+
+import routes from "./routes/email.routes.js"
+
+app.use("/api/v1", routes)
+
+export {app}

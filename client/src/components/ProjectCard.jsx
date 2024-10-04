@@ -11,7 +11,7 @@ const ProjectCard = ({ title, description, imageUrl, githubLink }) => {
           <Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="#b4c4f0">
             {description}
           </Typography>
           <Box sx={{ mt: 2 }}>

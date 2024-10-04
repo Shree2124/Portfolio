@@ -1,26 +1,46 @@
 import React, { useState } from "react";
-import { Box, Typography, Button, TextField, Modal } from "@mui/material";
+import { Box, Typography, Button, TextField, Modal, CircularProgress } from "@mui/material";
 import { motion } from "framer-motion";
+import axios from "axios"
+// import { smtp } from "../util.js";
 
 const Contact = () => {
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [num, setNum] = useState("");
   const [message, setMessage] = useState("");
-  const [openModal, setOpenModal] = useState(false);
-  const [otp, setOtp] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [openSuccessModal, setOpenSuccessModal] = useState(false);  
+  // console.log(smtp.username);
+  
 
-  const handleSend = () => {
-
-    setOpenModal(true);
+  const handleSend = async() => {
+    try {
+      setLoading(true);
+      await axios.post("http://localhost:8000/api/v1/mail",{
+        "email": "test@gmail.com",
+        name,
+        msg: message
+      }).then((res)=>{
+        // console.log(res);
+        setOpenSuccessModal(true)
+        setLoading(false)
+      }).finally(()=>{
+        setLoading(false)
+      })
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const handleOtpVerification = () => {
-    alert("OTP Verified! Email Sent.");
-    setOpenModal(false);
+  const handleCloseSuccessModal = () => {
+    setOpenSuccessModal(false);
   };
+
+ 
 
   return (
     <Box
-    id="contact"
+      id="contact"
       sx={{
         minHeight: "100vh",
         backgroundColor: "#040319",
@@ -47,12 +67,21 @@ const Contact = () => {
         </Typography>
 
         <TextField
-          label="Email"
+          label="Name"
           fullWidth
           variant="outlined"
           sx={{ mb: 2, backgroundColor: "#FFF", borderRadius: "5px" }}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <TextField
+          label="Phone Number"
+          fullWidth
+          variant="outlined"
+          sx={{ mb: 2, backgroundColor: "#FFF", borderRadius: "5px" }}
+          value={num}
+          onChange={(e) => setNum(e.target.value)}
         />
 
         <TextField
@@ -80,13 +109,14 @@ const Contact = () => {
               },
             }}
             onClick={handleSend}
+            disabled={loading}
           >
-            Send
+            {loading ? <CircularProgress color="secondary" /> : "Send"}
           </Button>
         </motion.div>
       </Box>
 
-      <Modal open={openModal} onClose={() => setOpenModal(false)}>
+      <Modal open={openSuccessModal} onClose={handleCloseSuccessModal}>
         <Box
           sx={{
             position: "absolute",
@@ -103,18 +133,11 @@ const Contact = () => {
           }}
         >
           <Typography variant="h6" sx={{ mb: 2 }}>
-            Enter OTP
+            Success!
           </Typography>
-
-          <TextField
-            label="OTP"
-            fullWidth
-            variant="outlined"
-            sx={{ mb: 2 }}
-            value={otp}
-            onChange={(e) => setOtp(e.target.value)}
-          />
-
+          <Typography sx={{ mb: 2 }}>
+            Your message has been sent successfully!
+          </Typography>
           <Button
             variant="contained"
             sx={{
@@ -125,9 +148,9 @@ const Contact = () => {
                 backgroundColor: "#00e6e6",
               },
             }}
-            onClick={handleOtpVerification}
+            onClick={handleCloseSuccessModal}
           >
-            Verify OTP
+            Close
           </Button>
         </Box>
       </Modal>

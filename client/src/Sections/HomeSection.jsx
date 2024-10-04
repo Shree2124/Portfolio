@@ -73,7 +73,7 @@ const Home = () => {
             </Button>
           </motion.div>
         </motion.div>
-
+{/* 
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -91,7 +91,7 @@ const Home = () => {
               boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.5)",
             }}
           />
-        </motion.div>
+        </motion.div> */}
       </Box>
     </>
   );
