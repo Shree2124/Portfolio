@@ -21,7 +21,7 @@ const About = () => {
       >
         <Typography
           variant="h3"
-          sx={{ textAlign: "center", mb: 4, color: "#00FFFF" }}
+          sx={{ textAlign: "center", mb: 4, color: "#00FFFF", fontWeight: "bold" }}
         >
           About Me
         </Typography>

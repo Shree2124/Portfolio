@@ -23,7 +23,7 @@ const Contact = () => {
     id="contact"
       sx={{
         minHeight: "100vh",
-        backgroundColor: "#1A1A2E",
+        backgroundColor: "#040319",
         color: "#FFF",
         padding: "4rem 2rem",
         display: "flex",
@@ -37,7 +37,7 @@ const Contact = () => {
           width: "100%",
           maxWidth: "500px",
           padding: "2rem",
-          backgroundColor: "#040319",
+          backgroundColor: "#1A1A2E",
           borderRadius: "10px",
           boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.5)",
         }}

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const ProjectCard = ({ title, description, imageUrl, githubLink }) => {
   return (
     <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
-      <Card sx={{ maxWidth: 345, backgroundColor: "#1A1A2E", color: "#FFF" }}>
+      <Card sx={{ maxWidth: 345, backgroundColor: "#040319", color: "#FFF" }}>
         <CardMedia component="img" alt={title} height="140" image={imageUrl} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

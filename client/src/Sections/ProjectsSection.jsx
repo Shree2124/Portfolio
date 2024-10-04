@@ -28,9 +28,9 @@ const projects = [
 
 const Projects = () => {
   return (
-    <Box id="projects" sx={{ minHeight: "100vh", bgcolor: "#040319", color: "#FFF", padding: "2rem" }}>
+    <Box id="projects" sx={{ minHeight: "100vh", bgcolor: "#1A1A2E", color: "#FFF", padding: "2rem" }}>
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <Typography variant="h4" sx={{ textAlign: "left", mb: 4 }}>
+      <Typography variant="h4" sx={{ textAlign: "center", mb: 4, fontWeight: "bold" }}>
         My Projects
       </Typography>
       <Grid container spacing={4} justifyContent="center">
