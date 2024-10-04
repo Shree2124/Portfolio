@@ -1,6 +1,18 @@
 import { createTransport } from "nodemailer";
 
 const sendMail = async (data) => {
+    
+};
+
+const asyncHandler = (requestHandler) => {
+    return (req, res, next) => {
+        Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err));
+    };
+};
+
+const sendMails = asyncHandler(async (req, res) => {
+    const { email, name, msg } = req.body
+    const data = { email, name, msg }
     const transport = createTransport({
         host: "smtp.gmail.com",
         port: 465,
@@ -18,18 +30,8 @@ const sendMail = async (data) => {
     Message: ${data.msg}
     `,
     });
-};
-
-const asyncHandler = (requestHandler) => {
-    return (req, res, next) => {
-        Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err));
-    };
-};
-
-const sendMails = asyncHandler(async (req, res) => {
-    const { email, name, msg } = req.body
-    const data = { email, name, msg }
-    await sendMail(data);
+    console.log(transport);
+    
     return res.status(200).json("email send successfully")
 })
 
