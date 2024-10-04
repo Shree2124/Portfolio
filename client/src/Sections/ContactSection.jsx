@@ -21,7 +21,7 @@ const Contact = () => {
         name,
         msg: message
       }).then((res)=>{
-        // console.log(res);
+        console.log(res);
         setOpenSuccessModal(true)
         setLoading(false)
       }).finally(()=>{

@@ -14,7 +14,7 @@ const app = express();
 
 app.use(
     cors({
-        origin: ["https://shree-portfolio-xi.vercel.app"],
+        origin: "https://shree-portfolio-xi.vercel.app/",
         // origin: ["*"],
         methods: ["POST", "GET", "PUT", "DELETE", "PATCH"],
         preflightContinue: false,
