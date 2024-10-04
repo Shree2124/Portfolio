@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Typography, Box, Grid } from "@mui/material";
-import about from "../assets/about.webp"
+import about from "../assets/about.webp";
 
 const About = () => {
   return (
@@ -26,7 +26,7 @@ const About = () => {
         </Typography>
 
         <Typography
-        variant="h5"
+          variant="h5"
           sx={{
             maxWidth: "700px",
             margin: "0 auto",
@@ -74,9 +74,9 @@ const About = () => {
             <Typography variant="h5">
               I believe in the power of collaboration and open-source. I'm
               constantly learning and evolving as a developer, staying up to
-              date with the latest industry trends. In my free time, I contribute
-              to open-source projects, experiment with new technologies, and
-              enjoy mentoring budding developers.
+              date with the latest industry trends. In my free time I do
+              experiments with new technologies and enjoy mentoring budding
+              developers.
             </Typography>
           </motion.div>
 
