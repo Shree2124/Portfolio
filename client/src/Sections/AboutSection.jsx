@@ -8,9 +8,10 @@ const About = () => {
       id="about"
       sx={{
         minHeight: "100vh",
-        bgcolor: "#1A1A2E",
+        bgcolor: "#292938",
         color: "#FFF",
         padding: "2rem",
+        textAlign: "center"
       }}
     >
       <motion.div

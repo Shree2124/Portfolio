@@ -1,8 +1,9 @@
 import { Box, Typography, Button, Grid } from "@mui/material";
 import { motion } from "framer-motion";
-import image from "../assets/space.jpg"
-import coder from "../assets/coder.jpeg"
-import bg from "../assets/Bg.png"
+import image from "../assets/space.jpg";
+import coder from "../assets/coder.jpeg";
+import bg from "../assets/Bg.png";
+import { Link as ScrollLink } from "react-scroll";
 
 const Home = () => {
   return (
@@ -23,8 +24,6 @@ const Home = () => {
           padding: "2rem",
         }}
       >
-
-        
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,7 +67,9 @@ const Home = () => {
                 },
               }}
             >
-              Explore My Work
+              <ScrollLink to={"projects"} spy={true} smooth={true}>
+                Explore My Work
+              </ScrollLink>
             </Button>
           </motion.div>
         </motion.div>
