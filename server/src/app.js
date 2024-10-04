@@ -17,8 +17,6 @@ app.use(
         origin: "https://shree-portfolio-xi.vercel.app/",
         // origin: ["*"],
         methods: ["POST", "GET", "PUT", "DELETE", "PATCH"],
-        preflightContinue: false,
-        credentials: true
     })
 );
 
