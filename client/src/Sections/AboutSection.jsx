@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Typography, Box, Grid } from "@mui/material";
 import about from "../assets/about.webp";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -96,7 +97,9 @@ const About = () => {
               textAlign: "center",
             }}
           >
+            {/* <Link to="contact"> */}
             <Typography variant="h6">Let's Collaborate</Typography>
+            {/* </Link> */}
           </motion.div>
         </Grid>
       </Grid>
